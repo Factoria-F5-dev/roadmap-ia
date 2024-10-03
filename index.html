@@ -154,26 +154,41 @@
                               if (item.type === "Proyecto") {
                                     icon = "🚀";
                                     colorClass = "proyecto";
+                                    // Proyectos tienen 3 bloques por defecto
+                                    item.start = item.start
+                                          ? item.start
+                                          : lastEnd + 1;
+                                    item.end = item.end
+                                          ? item.end
+                                          : item.start + 2;
                               } else if (item.type === "Píldora") {
                                     icon = "💊";
                                     colorClass = "pildora";
+                                    // Píldoras tienen 1 bloque por defecto
+                                    item.start = item.start
+                                          ? item.start
+                                          : lastEnd + 1;
+                                    item.end = item.end ? item.end : item.start;
                               } else if (item.type === "Tema") {
                                     icon = "📚";
                                     colorClass = "tema";
+                                    // Temas tienen 3 bloques por defecto
+                                    item.start = item.start
+                                          ? item.start
+                                          : lastEnd + 1;
+                                    item.end = item.end
+                                          ? item.end
+                                          : item.start + 2;
                               }
 
-                              // Si no tiene fechas, colocarlo después del último elemento
-                              let start = item.start ? item.start : lastEnd + 1;
-                              let end = item.end ? item.end : start;
-
                               // Actualizar el último "end" para el siguiente elemento
-                              lastEnd = end;
+                              lastEnd = item.end;
 
                               // La primera celda de la fila (columna de elementos) tiene el mismo color que el resto de la fila
                               let row = `<tr><td class="label ${colorClass}">${icon} ${item.name}</td>`;
 
                               for (let i = 1; i <= weeks; i++) {
-                                    if (i >= start && i <= end) {
+                                    if (i >= item.start && i <= item.end) {
                                           row += `<td class="block ${colorClass}"></td>`;
                                     } else {
                                           row += `<td class="empty"></td>`;
