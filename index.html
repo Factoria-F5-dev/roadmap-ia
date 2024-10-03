@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es">
+      <head>
+            <meta charset="UTF-8" />
+            <meta
+                  name="viewport"
+                  content="width=device-width, initial-scale=1.0"
+            />
+            <title>Bootcamp de IA</title>
+            <style>
+                  body {
+                        font-family: Arial, sans-serif;
+                        margin: 20px;
+                  }
+
+                  table {
+                        border-collapse: collapse;
+                        width: 100%;
+                        table-layout: fixed;
+                  }
+
+                  th,
+                  td {
+                        border: 1px solid #dddddd;
+                        text-align: center;
+                        padding: 8px;
+                        font-size: 8px; /* Tamaño de texto del cuerpo */
+                  }
+
+                  th {
+                        background-color: #f4f4f4;
+                        font-size: 10px; /* Tamaño de texto de los encabezados */
+                  }
+
+                  td.block {
+                        color: white;
+                        font-weight: bold;
+                  }
+
+                  td.block.pildora {
+                        background-color: #f4d03f; /* Amarillo */
+                  }
+
+                  td.block.tema {
+                        background-color: #2ecc71; /* Verde */
+                  }
+
+                  td.block.proyecto {
+                        background-color: #e67e22; /* Naranja */
+                  }
+
+                  td.empty {
+                        background-color: #f9f9f9;
+                  }
+
+                  /* Ancho mínimo aplicado a la columna de elementos */
+                  .label {
+                        font-weight: bold;
+                        color: white;
+                        min-width: 200px; /* Ancho mínimo para la primera columna */
+                        text-align: left; /* Alinear el texto a la izquierda */
+                  }
+
+                  .label.pildora {
+                        background-color: #f4d03f;
+                  }
+
+                  .label.tema {
+                        background-color: #2ecc71;
+                  }
+
+                  .label.proyecto {
+                        background-color: #e67e22;
+                  }
+
+                  .icon {
+                        margin-right: 5px;
+                  }
+            </style>
+      </head>
+      <body>
+            <h1>Bootcamp de IA</h1>
+
+            <div>
+                  <label for="weeks">Semanas:</label>
+                  <input type="number" id="weeks" value="36" min="1" max="52" />
+                  <button onclick="generateGantt()">Generar</button>
+            </div>
+
+            <table id="gantt-table">
+                  <!-- Aquí se generará la tabla dinámica -->
+            </table>
+
+            <script>
+                  const data = [
+                        {
+                              type: "Proyecto",
+                              name: "Presentación",
+                              start: 1,
+                              end: 1,
+                        },
+                        {
+                              type: "Píldora",
+                              name: "Convivencias",
+                              start: 1,
+                              end: 1,
+                        },
+                        {
+                              type: "Píldora",
+                              name: "Alta canales",
+                              start: 1,
+                              end: 1,
+                        },
+                        {
+                              type: "Tema",
+                              name: "Instalación de programas",
+                              start: 2,
+                              end: 3,
+                        },
+                        { type: "Tema", name: "Figma", start: 2, end: 3 },
+                        {
+                              type: "Proyecto",
+                              name: "Terminal UNIX",
+                              start: 2,
+                              end: 3,
+                        },
+                        { type: "Tema", name: "HTML", start: 4, end: 5 },
+                        { type: "Proyecto", name: "CSS", start: 5, end: 6 },
+                        { type: "Proyecto", name: "Proyecto 7" }, // No tiene fechas especificadas
+                  ];
+
+                  function generateGantt() {
+                        const weeks = document.getElementById("weeks").value;
+                        const table = document.getElementById("gantt-table");
+                        table.innerHTML = ""; // Limpiar tabla antes de regenerar
+
+                        // Crear encabezado
+                        let headerRow =
+                              "<tr><th style='width:100px'>Elemento</th>";
+                        for (let i = 1; i <= weeks; i++) {
+                              headerRow += `<th>${i}</th>`;
+                        }
+                        headerRow += "</tr>";
+                        table.innerHTML = headerRow;
+
+                        let lastEnd = 0; // Variable para rastrear el último "end" de los elementos anteriores
+
+                        // Crear filas
+                        data.forEach((item) => {
+                              let icon = "";
+                              let colorClass = "";
+
+                              // Asignar iconos y colores según el tipo
+                              if (item.type === "Proyecto") {
+                                    icon = "🚀";
+                                    colorClass = "proyecto";
+                              } else if (item.type === "Píldora") {
+                                    icon = "💊";
+                                    colorClass = "pildora";
+                              } else if (item.type === "Tema") {
+                                    icon = "📚";
+                                    colorClass = "tema";
+                              }
+
+                              // Si no tiene fechas, colocarlo después del último elemento
+                              let start = item.start ? item.start : lastEnd + 1;
+                              let end = item.end ? item.end : start;
+
+                              // Actualizar el último "end" para el siguiente elemento
+                              lastEnd = end;
+
+                              // La primera celda de la fila (columna de elementos) tiene el mismo color que el resto de la fila
+                              let row = `<tr><td class="label ${colorClass}">${icon} ${item.name}</td>`;
+
+                              for (let i = 1; i <= weeks; i++) {
+                                    if (i >= start && i <= end) {
+                                          row += `<td class="block ${colorClass}"></td>`;
+                                    } else {
+                                          row += `<td class="empty"></td>`;
+                                    }
+                              }
+                              row += "</tr>";
+                              table.innerHTML += row;
+                        });
+                  }
+
+                  // Generar la tabla al cargar la página
+                  window.onload = generateGantt;
+            </script>
+      </body>
+</html>
