@@ -229,7 +229,7 @@
                               lastEnd = item.end;
 
                               // La primera celda de la fila (columna de elementos) tiene el mismo color que el resto de la fila
-                              let row = `<tr><td class="label ${colorClass}">${icon} ${item.name}</td>`;
+                              let row = `<tr><td style="min-width:200px" class="label ${colorClass}">${icon} ${item.name}</td>`;
 
                               for (let i = 1; i <= weeks; i++) {
                                     if (i >= item.start && i <= item.end) {

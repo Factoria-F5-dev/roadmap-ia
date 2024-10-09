@@ -1,4 +1,4 @@
-< !DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
       <head>
             <meta charset="UTF-8" />
@@ -24,7 +24,7 @@
                         border: 1px solid #dddddd;
                         text-align: center;
                         padding: 8px;
-                        font-size: 8px;
+                        font-size: 11px;
                         /* Tamaño de texto del cuerpo */
                   }
 
@@ -57,15 +57,10 @@
                   td.empty {
                         background-color: #f9f9f9;
                   }
-
-                  /* Ancho mínimo aplicado a la columna de elementos */
                   .label {
                         font-weight: bold;
                         color: white;
-                        min-width: 200px;
-                        /* Ancho mínimo para la primera columna */
                         text-align: left;
-                        /* Alinear el texto a la izquierda */
                   }
 
                   .label.pildora {
@@ -83,11 +78,14 @@
                   .icon {
                         margin-right: 5px;
                   }
+                  #generate {
+                        display: none;
+                  }
             </style>
       </head>
       <body>
             <h1>Bootcamp de IA</h1>
-            <div>
+            <div id="generate">
                   <label for="weeks">Semanas:</label
                   ><input
                         type="number"
@@ -97,9 +95,7 @@
                         max="52"
                   /><button onclick="generateGantt()">Generar</button>
             </div>
-            <table id="gantt-table">
-                  < !-- Aquí se generará la tabla dinámica -->
-            </table>
+            <table id="gantt-table"></table>
             <script>
                   const data = [
                         {
@@ -188,16 +184,12 @@
                         table.innerHTML = ""; // Limpiar tabla antes de regenerar
 
                         // Crear encabezado de los meses
-                        let monthHeaderRow = "<tr><th></th>"; // Primera celda vacía para la columna de elementos
+                        let monthHeaderRow =
+                              "<tr><th style='width:150px'></th>"; // Primera celda vacía para la columna de elementos
 
                         for (let i = 1; i <= weeks; i += 4) {
                               const month = Math.ceil(i / 4); // Calcular el mes correspondiente
-
-                              monthHeaderRow += `<th colspan="4">Mes $ {
-                  month
-            }
-
-            </th>`;
+                              monthHeaderRow += `<th colspan="4">Mes ${month}</th>`;
                         }
 
                         monthHeaderRow += "</tr>";
@@ -207,11 +199,7 @@
                         let weekHeaderRow = "<tr><th>Elemento</th>";
 
                         for (let i = 1; i <= weeks; i++) {
-                              weekHeaderRow += `<th>$ {
-                  i
-            }
-
-            </th>`;
+                              weekHeaderRow += `<th>${i}</th>`;
                         }
 
                         weekHeaderRow += "</tr>";
@@ -259,21 +247,12 @@
                               lastEnd = item.end;
 
                               // La primera celda de la fila (columna de elementos) tiene el mismo color que el resto de la fila
-                              let row = `<tr><td class="label ${colorClass}" >$ {
-                        icon
-                  }
-
-                  $ {
-                        item.name
-                  }
-
-                  </td>`;
-
+                              let row = `<tr><td class="label ${colorClass}">${icon} ${item.name}</td>`;
                               for (let i = 1; i <= weeks; i++) {
                                     if (i >= item.start && i <= item.end) {
                                           row += `<td class="block ${colorClass}" ></td>`;
                                     } else {
-                                          row += `<td class="empty" ></td>`;
+                                          row += `<td class="empty"></td>`;
                                     }
                               }
 
