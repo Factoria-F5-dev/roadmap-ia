@@ -24,12 +24,14 @@
                         border: 1px solid #dddddd;
                         text-align: center;
                         padding: 8px;
-                        font-size: 8px; /* Tamaño de texto del cuerpo */
+                        font-size: 11px;
+                        /* Tamaño de texto del cuerpo */
                   }
 
                   th {
                         background-color: #f4f4f4;
-                        font-size: 10px; /* Tamaño de texto de los encabezados */
+                        font-size: 10px;
+                        /* Tamaño de texto de los encabezados */
                   }
 
                   td.block {
@@ -38,27 +40,27 @@
                   }
 
                   td.block.pildora {
-                        background-color: #d9af05; /* Amarillo */
+                        background-color: #d9af05;
+                        /* Amarillo */
                   }
 
                   td.block.tema {
-                        background-color: #2ecc71; /* Verde */
+                        background-color: #2ecc71;
+                        /* Verde */
                   }
 
                   td.block.proyecto {
-                        background-color: #e67e22; /* Naranja */
+                        background-color: #e67e22;
+                        /* Naranja */
                   }
 
                   td.empty {
                         background-color: #f9f9f9;
                   }
-
-                  /* Ancho mínimo aplicado a la columna de elementos */
                   .label {
                         font-weight: bold;
                         color: white;
-                        min-width: 200px; /* Ancho mínimo para la primera columna */
-                        text-align: left; /* Alinear el texto a la izquierda */
+                        text-align: left;
                   }
 
                   .label.pildora {
@@ -76,21 +78,24 @@
                   .icon {
                         margin-right: 5px;
                   }
+                  #generate {
+                        display: none;
+                  }
             </style>
       </head>
       <body>
             <h1>Bootcamp de IA</h1>
-
-            <div>
-                  <label for="weeks">Semanas:</label>
-                  <input type="number" id="weeks" value="36" min="1" max="52" />
-                  <button onclick="generateGantt()">Generar</button>
+            <div id="generate">
+                  <label for="weeks">Semanas:</label
+                  ><input
+                        type="number"
+                        id="weeks"
+                        value="36"
+                        min="1"
+                        max="52"
+                  /><button onclick="generateGantt()">Generar</button>
             </div>
-
-            <table id="gantt-table">
-                  <!-- Aquí se generará la tabla dinámica -->
-            </table>
-
+            <table id="gantt-table"></table>
             <script>
                   const data = [
                         {
@@ -105,23 +110,33 @@
                         },
                         {
                               type: "Proyecto",
-                              name: "Web Scraping 🧑🏽‍💻",
+                              name: "Web Scraping 🧑🏽‍💻 ",
                               start: 8,
                               end: 9,
                         },
                         {
                               type: "Proyecto",
-                              name: "Regresión lineal 👩🏽‍💻👨🏽‍💻 ",
+                              name: "Datathon 🧑🏽‍💻 ",
                               start: 10,
-                              end: 13,
+                              end: 10,
+                        },
+                        {
+                              type: "Proyecto",
+                              name: "Regresión lineal 👩🏽‍💻👨🏽‍💻 ",
+                              start: 11,
+                              end: 14,
                         },
                         {
                               type: "Proyecto",
                               name: "Regresión logística binaria 🧑🏽‍💻",
+                              start: 15,
+                              end: 16,
                         },
                         {
                               type: "Proyecto",
                               name: "Regresión logística multiclase 👩🏽‍💻👨🏽‍💻 ",
+                              start: 17,
+                              end: 18,
                         },
                         {
                               type: "Tema",
@@ -149,21 +164,27 @@
                         },
                         {
                               type: "Tema",
-                              name: "Intro a mates y estadística (Derivadas, límites, métricas, distribuciones)",
+                              name: "Intro a Análisis exploratorio de Datos (EDA), pandas, numpy, scikitlearn, matplotlib",
                               start: 10,
                               end: 10,
                         },
                         {
                               type: "Tema",
-                              name: "Intro a machine learning (Tipos de modelos) y regresión lineal (Modelos, entrenamiento, evaluación, regresión lineal)",
+                              name: "Intro a mates y estadística (Derivadas, límites, métricas, distribuciones)",
                               start: 11,
                               end: 11,
                         },
                         {
                               type: "Tema",
+                              name: "Intro a machine learning (Tipos de modelos) y regresión lineal (Modelos, entrenamiento, evaluación, regresión lineal)",
+                              start: 12,
+                              end: 12,
+                        },
+                        {
+                              type: "Tema",
                               name: "Intro a modelo de clasificación binaria (Regresión logicastica, modelos, entrenamiento, evaluación)",
-                              start: 14,
-                              end: 14,
+                              start: 15,
+                              end: 15,
                         },
                         {
                               type: "Tema",
@@ -172,20 +193,32 @@
                               end: 17,
                         },
                   ];
-
                   function generateGantt() {
                         const weeks = document.getElementById("weeks").value;
                         const table = document.getElementById("gantt-table");
                         table.innerHTML = ""; // Limpiar tabla antes de regenerar
 
-                        // Crear encabezado
-                        let headerRow =
-                              "<tr><th style='width:100px'>Elemento</th>";
-                        for (let i = 1; i <= weeks; i++) {
-                              headerRow += `<th>${i}</th>`;
+                        // Crear encabezado de los meses
+                        let monthHeaderRow =
+                              "<tr><th style='width:150px'></th>"; // Primera celda vacía para la columna de elementos
+
+                        for (let i = 1; i <= weeks; i += 4) {
+                              const month = Math.ceil(i / 4); // Calcular el mes correspondiente
+                              monthHeaderRow += `<th colspan="4">Mes ${month}</th>`;
                         }
-                        headerRow += "</tr>";
-                        table.innerHTML = headerRow;
+
+                        monthHeaderRow += "</tr>";
+                        table.innerHTML = monthHeaderRow;
+
+                        // Crear encabezado de las semanas
+                        let weekHeaderRow = "<tr><th>Elemento</th>";
+
+                        for (let i = 1; i <= weeks; i++) {
+                              weekHeaderRow += `<th>${i}</th>`;
+                        }
+
+                        weekHeaderRow += "</tr>";
+                        table.innerHTML += weekHeaderRow;
 
                         let lastEnd = 0; // Variable para rastrear el último "end" de los elementos anteriores
 
@@ -229,15 +262,15 @@
                               lastEnd = item.end;
 
                               // La primera celda de la fila (columna de elementos) tiene el mismo color que el resto de la fila
-                              let row = `<tr><td style="min-width:200px" class="label ${colorClass}">${icon} ${item.name}</td>`;
-
+                              let row = `<tr><td class="label ${colorClass}">${icon} ${item.name}</td>`;
                               for (let i = 1; i <= weeks; i++) {
                                     if (i >= item.start && i <= item.end) {
-                                          row += `<td class="block ${colorClass}"></td>`;
+                                          row += `<td class="block ${colorClass}" ></td>`;
                                     } else {
                                           row += `<td class="empty"></td>`;
                                     }
                               }
+
                               row += "</tr>";
                               table.innerHTML += row;
                         });
