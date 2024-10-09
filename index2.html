@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+< !DOCTYPE html>
 <html lang="es">
       <head>
             <meta charset="UTF-8" />
@@ -24,12 +24,14 @@
                         border: 1px solid #dddddd;
                         text-align: center;
                         padding: 8px;
-                        font-size: 8px; /* Tamaño de texto del cuerpo */
+                        font-size: 8px;
+                        /* Tamaño de texto del cuerpo */
                   }
 
                   th {
                         background-color: #f4f4f4;
-                        font-size: 10px; /* Tamaño de texto de los encabezados */
+                        font-size: 10px;
+                        /* Tamaño de texto de los encabezados */
                   }
 
                   td.block {
@@ -38,15 +40,18 @@
                   }
 
                   td.block.pildora {
-                        background-color: #d9af05; /* Amarillo */
+                        background-color: #d9af05;
+                        /* Amarillo */
                   }
 
                   td.block.tema {
-                        background-color: #2ecc71; /* Verde */
+                        background-color: #2ecc71;
+                        /* Verde */
                   }
 
                   td.block.proyecto {
-                        background-color: #e67e22; /* Naranja */
+                        background-color: #e67e22;
+                        /* Naranja */
                   }
 
                   td.empty {
@@ -57,8 +62,10 @@
                   .label {
                         font-weight: bold;
                         color: white;
-                        min-width: 200px; /* Ancho mínimo para la primera columna */
-                        text-align: left; /* Alinear el texto a la izquierda */
+                        min-width: 200px;
+                        /* Ancho mínimo para la primera columna */
+                        text-align: left;
+                        /* Alinear el texto a la izquierda */
                   }
 
                   .label.pildora {
@@ -80,17 +87,19 @@
       </head>
       <body>
             <h1>Bootcamp de IA</h1>
-
             <div>
-                  <label for="weeks">Semanas:</label>
-                  <input type="number" id="weeks" value="36" min="1" max="52" />
-                  <button onclick="generateGantt()">Generar</button>
+                  <label for="weeks">Semanas:</label
+                  ><input
+                        type="number"
+                        id="weeks"
+                        value="36"
+                        min="1"
+                        max="52"
+                  /><button onclick="generateGantt()">Generar</button>
             </div>
-
             <table id="gantt-table">
-                  <!-- Aquí se generará la tabla dinámica -->
+                  < !-- Aquí se generará la tabla dinámica -->
             </table>
-
             <script>
                   const data = [
                         {
@@ -178,14 +187,35 @@
                         const table = document.getElementById("gantt-table");
                         table.innerHTML = ""; // Limpiar tabla antes de regenerar
 
-                        // Crear encabezado
-                        let headerRow =
-                              "<tr><th style='width:100px'>Elemento</th>";
-                        for (let i = 1; i <= weeks; i++) {
-                              headerRow += `<th>${i}</th>`;
+                        // Crear encabezado de los meses
+                        let monthHeaderRow = "<tr><th></th>"; // Primera celda vacía para la columna de elementos
+
+                        for (let i = 1; i <= weeks; i += 4) {
+                              const month = Math.ceil(i / 4); // Calcular el mes correspondiente
+
+                              monthHeaderRow += `<th colspan="4">Mes $ {
+                  month
+            }
+
+            </th>`;
                         }
-                        headerRow += "</tr>";
-                        table.innerHTML = headerRow;
+
+                        monthHeaderRow += "</tr>";
+                        table.innerHTML = monthHeaderRow;
+
+                        // Crear encabezado de las semanas
+                        let weekHeaderRow = "<tr><th>Elemento</th>";
+
+                        for (let i = 1; i <= weeks; i++) {
+                              weekHeaderRow += `<th>$ {
+                  i
+            }
+
+            </th>`;
+                        }
+
+                        weekHeaderRow += "</tr>";
+                        table.innerHTML += weekHeaderRow;
 
                         let lastEnd = 0; // Variable para rastrear el último "end" de los elementos anteriores
 
@@ -229,15 +259,24 @@
                               lastEnd = item.end;
 
                               // La primera celda de la fila (columna de elementos) tiene el mismo color que el resto de la fila
-                              let row = `<tr><td class="label ${colorClass}">${icon} ${item.name}</td>`;
+                              let row = `<tr><td class="label ${colorClass}" >$ {
+                        icon
+                  }
+
+                  $ {
+                        item.name
+                  }
+
+                  </td>`;
 
                               for (let i = 1; i <= weeks; i++) {
                                     if (i >= item.start && i <= item.end) {
-                                          row += `<td class="block ${colorClass}"></td>`;
+                                          row += `<td class="block ${colorClass}" ></td>`;
                                     } else {
-                                          row += `<td class="empty"></td>`;
+                                          row += `<td class="empty" ></td>`;
                                     }
                               }
+
                               row += "</tr>";
                               table.innerHTML += row;
                         });
