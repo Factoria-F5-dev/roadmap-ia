@@ -1,0 +1,96 @@
+[
+    {
+      "type": "Proyecto",
+      "name": "App con Python 🧑🏽‍💻 "
+    },
+    {
+      "type": "Proyecto",
+      "name": "Un CRUD 👩🏽‍💻👨🏽‍💻 ",
+      "start": 4,
+      "end": 7
+    },
+    {
+      "type": "Proyecto",
+      "name": "Web Scraping 🧑🏽‍💻 ",
+      "start": 8,
+      "end": 9
+    },
+    {
+      "type": "Proyecto",
+      "name": "Datathon 🧑🏽‍💻 ",
+      "start": 10,
+      "end": 10
+    },
+    {
+      "type": "Proyecto",
+      "name": "Regresión lineal 👩🏽‍💻👨🏽‍💻 ",
+      "start": 11,
+      "end": 14
+    },
+    {
+      "type": "Proyecto",
+      "name": "Regresión logística binaria 🧑🏽‍💻",
+      "start": 15,
+      "end": 16
+    },
+    {
+      "type": "Proyecto",
+      "name": "Regresión logística multiclase 👩🏽‍💻👨🏽‍💻 ",
+      "start": 17,
+      "end": 18
+    },
+    {
+      "type": "Tema",
+      "name": "Introducción a programación (Terminal, Entornos de desarrollo, Python, Gestor de paquetes, Entorno virtual, SCRUM)",
+      "start": 1,
+      "end": 1
+    },
+    {
+      "type": "Tema",
+      "name": "Buenas prácticas (Programación funcional, OOP, Git, Docker, Testing)",
+      "start": 4,
+      "end": 4
+    },
+    {
+      "type": "Tema",
+      "name": "BBDD (SQL, NoSQL, ORM/ODM ) y Despliegue en producción (APIs Rest, Render, Azure)",
+      "start": 5,
+      "end": 5
+    },
+    {
+      "type": "Tema",
+      "name": "Web Scraping (HTML, CSS, JS, Selenium, Scrapy, DOM)",
+      "start": 8,
+      "end": 8
+    },
+    {
+      "type": "Tema",
+      "name": "Intro a Análisis exploratorio de Datos (EDA), pandas, numpy, scikitlearn, matplotlib",
+      "start": 10,
+      "end": 10
+    },
+    {
+      "type": "Tema",
+      "name": "Intro a mates y estadística (Derivadas, límites, métricas, distribuciones)",
+      "start": 11,
+      "end": 11
+    },
+    {
+      "type": "Tema",
+      "name": "Intro a machine learning (Tipos de modelos) y regresión lineal (Modelos, entrenamiento, evaluación, regresión lineal)",
+      "start": 12,
+      "end": 12
+    },
+    {
+      "type": "Tema",
+      "name": "Intro a modelo de clasificación binaria (Regresión logicastica, modelos, entrenamiento, evaluación)",
+      "start": 15,
+      "end": 15
+    },
+    {
+      "type": "Tema",
+      "name": "Intro a modelo de clasificación multiclase y ajuste de modelo",
+      "start": 17,
+      "end": 17
+    }
+  ]

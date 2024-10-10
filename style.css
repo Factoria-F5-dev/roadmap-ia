@@ -1,0 +1,25 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.sidebar {
+    height: 100vh;
+    background-color: #faf9f8;
+}
+
+.nav-link {
+    color: #495057;
+}
+
+.nav-link:hover {
+    background-color: #e9ecef;
+}
+
+.card {
+    height: 100%;
+}
+
+.section-container {
+    margin-bottom: 20px;
+}
+
