@@ -2,7 +2,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const links = {
         zoom: 'https://zoom.us/j/your-zoom-link',
         classroom: 'https://classroom.google.com/your-classroom-link',
-        // roadmap: 'roadmap.html',
         discord: 'https://discord.gg/your-discord-invite',
         github: 'https://github.com/your-repository'
     };
@@ -16,8 +15,20 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
-});
 
+    // Smooth scrolling for internal links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+
+    // Generate the roadmap on page load
+    generateGantt();
+});
 
 const data = [
     {
@@ -119,20 +130,20 @@ const data = [
 function generateGantt() {
     const weeks = document.getElementById("weeks").value;
     const table = document.getElementById("gantt-table");
-    table.innerHTML = ""; // Limpiar tabla antes de regenerar
+    table.innerHTML = ""; // Clear table before regenerating
 
-    // Crear encabezado de los meses
-    let monthHeaderRow = "<tr><th style='width:150px'></th>"; // Primera celda vacía para la columna de elementos
+    // Create month header
+    let monthHeaderRow = "<tr><th style='width:200px'></th>"; // Increased width for the first column
 
     for (let i = 1; i <= weeks; i += 4) {
-        const month = Math.ceil(i / 4); // Calcular el mes correspondiente
+        const month = Math.ceil(i / 4);
         monthHeaderRow += `<th colspan="4">Mes ${month}</th>`;
     }
 
     monthHeaderRow += "</tr>";
     table.innerHTML = monthHeaderRow;
 
-    // Crear encabezado de las semanas
+    // Create week header
     let weekHeaderRow = "<tr><th>Elemento</th>";
 
     for (let i = 1; i <= weeks; i++) {
@@ -142,13 +153,12 @@ function generateGantt() {
     weekHeaderRow += "</tr>";
     table.innerHTML += weekHeaderRow;
 
-    let lastEnd = 0; // Variable para rastrear el último "end" de los elementos anteriores
+    let lastEnd = 0;
 
-    // Crear filas
+    // Create rows
     data.forEach((item) => {
         let colorClass = "";
 
-        // Asignar colores según el tipo
         if (item.type === "Proyecto") {
             colorClass = "proyecto";
             item.start = item.start ? item.start : lastEnd + 1;
@@ -159,10 +169,8 @@ function generateGantt() {
             item.end = item.end ? item.end : item.start + 2;
         }
 
-        // Actualizar el último "end" para el siguiente elemento
-        lastEnd = item.end;
+        lastEnd =   item.end;
 
-        // La primera celda de la fila (columna de elementos) tiene el mismo color que el resto de la fila
         let row = `<tr><td class="label ${colorClass}">${item.name}</td>`;
         for (let i = 1; i <= weeks; i++) {
             if (i >= item.start && i <= item.end) {
@@ -175,7 +183,7 @@ function generateGantt() {
         row += "</tr>";
         table.innerHTML += row;
     });
-}
 
-// Generar la tabla al cargar la página
-window.onload = generateGantt;
+    // Set a fixed width for the table
+    table.style.width = `${weeks * 30 + 200}px`; // 30px per week + 200px for the first column
+}

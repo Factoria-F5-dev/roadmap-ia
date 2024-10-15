@@ -13,38 +13,19 @@
         <div class="row">
             <!-- Sidebar -->
             <nav class="col-md-3 col-lg-2 d-md-block sidebar collapse">
-                <div class="position-sticky pt-3">
-                    <h1 class="h3 mb-4 px-3">Student Dashboard</h1>
+                <div class="sidebar-content">
+                    <h1 class="h3 mb-4 px-3">Bootcamp Inteligencia Artificial</h1>
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link" href="#" data-link="zoom">
-                                <i class="bi bi-camera-video me-2"></i>
-                                Zoom
+                            <a class="nav-link" href="#calendar">
+                                <i class="bi bi-calendar me-2"></i>
+                                Calendario
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#" data-link="classroom">
-                                <i class="bi bi-grid-3x3-gap me-2"></i>
-                                Google Classroom
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="./roadmap/roadmap.html">
-                              <!-- <a class="nav-link" href="./data/data.json"> -->
+                            <a class="nav-link" href="#roadmap">
                                 <i class="bi bi-map me-2"></i>
                                 Roadmap
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#" data-link="discord">
-                                <i class="bi bi-chat-dots me-2"></i>
-                                Discord
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#" data-link="github">
-                                <i class="bi bi-github me-2"></i>
-                                GitHub Repository
                             </a>
                         </li>
                     </ul>
@@ -56,12 +37,29 @@
                 <div class="container section-container mt-4">
                     <div class="row g-4">
                         <!-- Calendar Card -->
-                        <div class="col-12">
+                        <div class="col-12" id="calendar">
                             <div class="card">
                                 <div class="card-body">
-                                    <h5 class="card-title">Course Calendar</h5>
+                                    <h5 class="card-title">Calendario</h5>
                                     <div class="ratio ratio-16x9">
                                         <iframe src="https://calendar.google.com/calendar/embed?src=c_classroom12345abcdef%40group.calendar.google.com&ctz=America%2FNew_York" style="border: 0" width="100%" height="400" frameborder="0" scrolling="no"></iframe>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Roadmap Card -->
+                        <div class="col-md-12" id="roadmap">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Roadmap del curso</h5>
+                                    <div id="generate">
+                                        <label for="weeks">Semanas:</label>
+                                        <input type="number" id="weeks" value="36" min="1" max="52">
+                                        <!-- <button onclick="generateGantt()">Generar</button> -->
+                                    </div>
+                                    <div class="gantt-container">
+                                        <table id="gantt-table"></table>
                                     </div>
                                 </div>
                             </div>
@@ -81,10 +79,6 @@
                                             <i class="bi bi-grid-3x3-gap me-2"></i>
                                             Open Google Classroom
                                         </button>
-                                        <button class="btn btn-outline-primary" data-link="roadmap">
-                                            <i class="bi bi-map me-2"></i>
-                                            View Course Roadmap
-                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -94,7 +88,7 @@
                         <div class="col-md-6">
                             <div class="card">
                                 <div class="card-body">
-                                    <h5 class="card-title">Community</h5>
+                                    <h5 class="card-title">Conexión y contacto</h5>
                                     <div class="d-grid gap-2">
                                         <button class="btn btn-outline-primary" data-link="discord">
                                             <i class="bi bi-chat-dots me-2"></i>
