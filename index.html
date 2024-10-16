@@ -1,21 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Dashboard</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
-    <link href="style.css" rel="stylesheet">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bootcamp inteligencia artificial</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet" />
+    <link href="style.css" rel="stylesheet" />
 </head>
+
 <body>
     <div class="container-fluid">
         <div class="row">
             <!-- Sidebar -->
             <nav class="col-md-3 col-lg-2 d-md-block sidebar collapse">
                 <div class="sidebar-content">
-                    <h1 class="h3 mb-4 px-3">Bootcamp Inteligencia Artificial</h1>
+                    <h1 class="h3 mb-4 px-3">
+                        Bootcamp Inteligencia Artificial
+                    </h1>
                     <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#roadmap">
+                                <i class="bi bi-map me-2"></i>
+                                Roadmap
+                            </a>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#calendar">
                                 <i class="bi bi-calendar me-2"></i>
@@ -23,9 +33,9 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#roadmap">
-                                <i class="bi bi-map me-2"></i>
-                                Roadmap
+                            <a class="nav-link" href="#link">
+                                <i class="bi bi-lightning-charge"></i>
+                                Quick Links
                             </a>
                         </li>
                     </ul>
@@ -36,28 +46,38 @@
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
                 <div class="container section-container mt-4">
                     <div class="row g-4">
-                        <!-- Calendar Card -->
-                        <div class="col-12" id="calendar">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h5 class="card-title">Calendario</h5>
-                                    <div class="ratio ratio-16x9">
-                                        <iframe src="https://calendar.google.com/calendar/embed?src=c_classroom12345abcdef%40group.calendar.google.com&ctz=America%2FNew_York" style="border: 0" width="100%" height="400" frameborder="0" scrolling="no"></iframe>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Roadmap Card -->
                         <div class="col-md-12" id="roadmap">
                             <div class="card">
                                 <div class="card-body">
-                                    <h5 class="card-title">Roadmap del curso</h5>
+                                    <h5 class="card-title">
+                                        <i class="bi bi-map me-2"></i> Roadmap
+                                    </h5>
                                     <div id="generate">
                                         <label for="weeks">Semanas:</label>
-                                        <input type="number" id="weeks" value="36" min="1" max="52">
-                                        <!-- <button onclick="generateGantt()">Generar</button> -->
+                                        <input type="number" id="weeks" value="36" min="1" max="52"/>
+                                        <button onclick="generateGantt()">Generar</button>
                                     </div>
+                                    <!-- Leyenda-->
+                                    <div class="row mb-4">
+                                                <ul class="list-inline">
+                                                    <li class="list-inline-item">
+                                                        <span class="badge project">
+                                                             <i class="bi bi-briefcase-fill"></i> | <i class="bi bi-person-fill"></i> Proyectos individual de coder de temática abierta
+                                                        </span>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <span class="badge project">
+                                                             <i class="bi bi-briefcase-fill"></i> | <i class="bi bi-people-fill"></i> Proyectos en grupo de coders de temática abierta
+                                                        </span>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <span class="badge temas">
+                                                            <i class="bi bi-book-fill"></i> Temas (Impartidos por coders a través de píldoras individuales y grupales con apoyo de formadores y colaboraciones externas)
+                                                        </span>
+                                            
+                                                    </li>
+                                                </ul>
+                                     </div>
                                     <div class="gantt-container">
                                         <table id="gantt-table"></table>
                                     </div>
@@ -65,43 +85,62 @@
                             </div>
                         </div>
 
-                        <!-- Quick Links Card -->
-                        <div class="col-md-6">
+                        <div class="col-12" id="calendar">
                             <div class="card">
                                 <div class="card-body">
-                                    <h5 class="card-title">Quick Links</h5>
-                                    <div class="d-grid gap-2">
-                                        <button class="btn btn-outline-primary" data-link="zoom">
-                                            <i class="bi bi-camera-video me-2"></i>
-                                            Join Zoom Meeting
-                                        </button>
-                                        <button class="btn btn-outline-primary" data-link="classroom">
-                                            <i class="bi bi-grid-3x3-gap me-2"></i>
-                                            Open Google Classroom
-                                        </button>
+                                    <h5 class="card-title">
+                                         <i class="bi bi-calendar me-2"></i> Calendario
+                                    </h5>
+                                    <div class="ratio ratio-16x9">
+                                        <iframe
+                                            src="https://calendar.google.com/calendar/embed?src=c_classroom12345abcdef%40group.calendar.google.com&ctz=America%2FNew_York" style="border: 0;" width="100%" height="400" frameborder="0" scrolling="no">
+                                        </iframe>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Community Card -->
-                        <div class="col-md-6">
+                        <!-- Quick Links Card -->
+                        <div class="col-md-12" id="link">
                             <div class="card">
                                 <div class="card-body">
-                                    <h5 class="card-title">Conexión y contacto</h5>
-                                    <div class="d-grid gap-2">
-                                        <button class="btn btn-outline-primary" data-link="discord">
-                                            <i class="bi bi-chat-dots me-2"></i>
-                                            Join Discord Server
-                                        </button>
-                                        <button class="btn btn-outline-primary" data-link="github">
-                                            <i class="bi bi-github me-2"></i>
-                                            Access GitHub Repository
-                                        </button>
+                                    <h5 class="card-title">
+                                        <i class="bi bi-lightning-charge"></i> Quick Links
+                                    </h5>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="d-grid gap-2">
+                                                <button class="btn btn-outline-primary" data-link="zoom">
+                                                    <a href="https://zoom.us/j/your-meeting-id" target="_blank">
+                                                        <i class="bi bi-camera-video me-2"></i> Zoom Meeting
+                                                    </a>
+                                                </button>
+                                                <button class="btn btn-outline-primary" data-link="classroom">
+                                                    <a href="https://zoom.us/j/your-meeting-id" target="_blank">
+                                                        <i class="bi bi-grid-3x3-gap me-2"></i> Google Classroom
+                                                    </a>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="d-grid gap-2">
+                                                <button class="btn btn-outline-primary" data-link="zoom">
+                                                    <a href="https://zoom.us/j/your-meeting-id" target="_blank">
+                                                        <i class="bi bi-discord me-2"></i> Discord
+                                                    </a>
+                                                </button>
+                                                <button class="btn btn-outline-primary" data-link="classroom">
+                                                    <a href="https://zoom.us/j/your-meeting-id" target="_blank">
+                                                        <i class="bi bi-github me-2"></i> Github
+                                                    </a>
+                                                </button>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+
                     </div>
                 </div>
             </main>
@@ -111,4 +150,5 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="script.js"></script>
 </body>
+
 </html>

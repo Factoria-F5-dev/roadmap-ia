@@ -1,21 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const links = {
-        zoom: 'https://zoom.us/j/your-zoom-link',
-        classroom: 'https://classroom.google.com/your-classroom-link',
-        discord: 'https://discord.gg/your-discord-invite',
-        github: 'https://github.com/your-repository'
-    };
-
-    document.querySelectorAll('[data-link]').forEach(element => {
-        element.addEventListener('click', function(e) {
-            e.preventDefault();
-            const link = links[this.dataset.link];
-            if (link) {
-                window.open(link, '_blank');
-            }
-        });
-    });
-
     // Smooth scrolling for internal links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
@@ -33,95 +16,95 @@ document.addEventListener('DOMContentLoaded', function() {
 const data = [
     {
         type: "Proyecto",
-        name: "App con Python. Individual. Profe: Jorge.",
+        name: "App con Python | <i class='bi bi-person-fill'></i> | Profe: Jorge",
     },
     {
         type: "Proyecto",
-        name: "Un CRUD. Grupal: Profe: Alex.",
+        name: "Un CRUD | <i class='bi bi-people-fill'></i> | Profe: Alex",
         start: 4,
         end: 7,
     },
     {
         type: "Proyecto",
-        name: "Web Scraping. Individual. Profe: Jorge.",
+        name: "Web Scraping | <i class='bi bi-person-fill'></i> | Profe: Jorge",
         start: 8,
         end: 9,
     },
     {
         type: "Proyecto",
-        name: "Datathon.  Individual. Profe: Alex.",
+        name: "Datathon | <i class='bi bi-person-fill'></i> | Profe: Alex",
         start: 10,
         end: 10,
     },
     {
         type: "Proyecto",
-        name: "Regresión de regresión (regresión lineal). En grupo. Profe: Jorge.",
+        name: "Regresión de regresión (regresión lineal) | <i class='bi bi-person-fill'></i> | Profe: Jorge",
         start: 11,
         end: 14,
     },
     {
         type: "Proyecto",
-        name: "Problema de clasificación (Regresión logística binaria). Invididual. Profe: Alex.",
+        name: "Problema de clasificación (Regresión logística binaria) | <i class='bi bi-person-fill'></i> | Profe: Alex",
         start: 15,
         end: 16,
     },
     {
         type: "Proyecto",
-        name: "Problema de clasificación (Regresión logística multiclase) En grupo. Profes: Jorge y Alex.",
+        name: "Problema de clasificación (Regresión logística multiclase) | <i class='bi bi-people-fill'></i> | Profes: Jorge y Alex.",
         start: 17,
         end: 18,
     },
     {
         type: "Tema",
-        name: "Introducción a programación (Terminal, Entornos de desarrollo, Python, Gestor de paquetes, Entorno virtual, SCRUM). Profes: Jorge y Alex.",
+        name: "Introducción a programación (Terminal, Entornos de desarrollo, Python, Gestor de paquetes, Entorno virtual, SCRUM).",
         start: 1,
         end: 1,
     },
     {
         type: "Tema",
-        name: "Buenas prácticas (Programación funcional, OOP, Git, Docker, Testing). Coders con apoyo de formadores.",
+        name: "Buenas prácticas (Programación funcional, OOP, Git, Docker, Testing).",
         start: 4,
         end: 4,
     },
     {
         type: "Tema",
-        name: "BBDD (SQL, NoSQL, ORM/ODM) y Despliegue en producción (APIs Rest, Render, Azure). Coders con apoyo de formadores.",
+        name: "BBDD (SQL, NoSQL, ORM/ODM) y Despliegue en producción (APIs Rest, Render, Azure).",
         start: 5,
         end: 5,
     },
     {
         type: "Tema",
-        name: "Web Scraping (HTML, CSS, JS, Selenium, Scrapy, DOM). Coders con apoyo de formadores.",
+        name: "Web Scraping (HTML, CSS, JS, Selenium, Scrapy, DOM)",
         start: 8,
         end: 8,
     },
     {
         type: "Tema",
-        name: "Intro a Análisis exploratorio de Datos (EDA), pandas, numpy, scikitlearn, matplotlib. Coders con apoyo de formadores.",
+        name: "Intro a Análisis exploratorio de Datos (EDA), pandas, numpy, scikitlearn, matplotlib.",
         start: 10,
         end: 10,
     },
     {
         type: "Tema",
-        name: "Intro a mates y estadística (Derivadas, límites, métricas, distribuciones). Coders con apoyo de formadores.",
+        name: "Intro a mates y estadística (Derivadas, límites, métricas, distribuciones).",
         start: 11,
         end: 11,
     },
     {
         type: "Tema",
-        name: "Intro a machine learning (Tipos de modelos) y regresión lineal (Modelos, entrenamiento, evaluación, regresión lineal). Coders con apoyo de formadores.",
+        name: "Intro a machine learning (Tipos de modelos) y regresión lineal (Modelos, entrenamiento, evaluación, regresión lineal).",
         start: 12,
         end: 12,
     },
     {
         type: "Tema",
-        name: "Intro a modelo de clasificación binaria (Regresión logística, modelos, entrenamiento, evaluación). Coders con apoyo de formadores.",
+        name: "Intro a modelo de clasificación binaria (Regresión logística, modelos, entrenamiento, evaluación).",
         start: 15,
         end: 15,
     },
     {
         type: "Tema",
-        name: "Intro a modelo de clasificación multiclase y ajuste de modelo. Coders con apoyo de formadores.",
+        name: "Intro a modelo de clasificación multiclase y ajuste de modelo.",
         start: 17,
         end: 17,
     },
@@ -158,28 +141,32 @@ function generateGantt() {
     // Create rows
     data.forEach((item) => {
         let colorClass = "";
+        let iconoProject = '<i class="bi bi-briefcase-fill"></i>';
+        let iconoTema = '<i class="bi bi-book-fill"></i>';
+        let icon = '';
 
         if (item.type === "Proyecto") {
             colorClass = "proyecto";
             item.start = item.start ? item.start : lastEnd + 1;
             item.end = item.end ? item.end : item.start + 2;
+            icon = iconoProject;
         } else if (item.type === "Tema") {
             colorClass = "tema";
             item.start = item.start ? item.start : lastEnd + 1;
             item.end = item.end ? item.end : item.start + 2;
+            icon = iconoTema;
         }
 
         lastEnd =   item.end;
 
-        let row = `<tr><td class="label ${colorClass}">${item.name}</td>`;
+        let row = `<tr><td class="label ${colorClass}">${icon} ${item.name}</td>`;
         for (let i = 1; i <= weeks; i++) {
             if (i >= item.start && i <= item.end) {
-                row += `<td class="block ${colorClass}" ></td>`;
+                row += `<td class="block ${colorClass}"></td>`;
             } else {
                 row += `<td class="empty"></td>`;
             }
         }
-
         row += "</tr>";
         table.innerHTML += row;
     });

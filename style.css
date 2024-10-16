@@ -64,23 +64,36 @@ body {
 }
 
 #gantt-table td.block.pildora {
-    background-color: #d9af05;
+    background-color: #f1ad70;
+}
+
+.project {
+    background-color: #f1ad70;
+}
+
+.temas {
+    background-color: #5dc083;
+}
+
+.badge {
+    font-weight: normal;
+    color: black;
 }
 
 #gantt-table td.block.tema {
-    background-color: #2ecc71;
+    background-color: #5dc083;
 }
 
 #gantt-table td.tema {
-    background-color: #2ecc71;
+    background-color: #5dc083;
 }
 
 #gantt-table td.proyecto {
-    background-color: #e67e22;
+    background-color: #f1ad70;
 }
 
 #gantt-table td.block.proyecto {
-    background-color: #e67e22;
+    background-color: #f1ad70;
 }
 
 #gantt-table td.empty {
@@ -88,7 +101,6 @@ body {
 }
 
 #gantt-table .label {
-    font-weight: bold;
     color: rgb(0, 0, 0);
     text-align: left;
     position: sticky;
@@ -103,4 +115,11 @@ body {
 
 #generate {
     margin-bottom: 15px;
+    display: none;
 }
+
+.btn:hover {
+    background-color: #adcbf9!important;
+}
+
+a {text-decoration: none;}
