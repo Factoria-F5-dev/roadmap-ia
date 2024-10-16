@@ -56,7 +56,7 @@ const data = [
     },
     {
         type: "Tema",
-        name: "Introducción a programación (Terminal, Entornos de desarrollo, Python, Gestor de paquetes, Entorno virtual, SCRUM).",
+        name: "Introducción a programación (Terminal, Entornos de desarrollo (Pycharn, Jupyter, Colab, etc.), Python (Variables, funciones, gestor de paquetes, entorno virtual, etc.). SCRUM / VUCA).",
         start: 1,
         end: 1,
     },
