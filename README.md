@@ -54,7 +54,7 @@ Modifica estos archivos para cambiar colores, diseños u otros aspectos visuales
    }
 
 
-# Propiedades:
+# Propiedades
 
 - `props.type: roadmap`
 - `props.theme: AI`
