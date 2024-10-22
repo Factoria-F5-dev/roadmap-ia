@@ -52,9 +52,3 @@ Modifica estos archivos para cambiar colores, diseños u otros aspectos visuales
      start: 19,
      end: 21
    }
-
-
-# Propiedades
-
-- `props.type: roadmap`
-- `props.theme: AI`
