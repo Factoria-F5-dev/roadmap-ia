@@ -72,7 +72,7 @@ body {
 }
 
 .integracion {
-    background-color: #b71422;
+    background-color: #80808096;
 }
 
 .temas {
@@ -93,11 +93,11 @@ body {
 }
 
 #gantt-table td.block.integracion {
-    background-color: #b71422;
+    background-color: #80808096;
 }
 
 #gantt-table td.integracion {
-    background-color: #b71422;
+    background-color: #80808096;
 }
 
 #gantt-table td.proyecto {

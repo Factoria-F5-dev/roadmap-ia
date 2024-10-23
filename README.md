@@ -1,11 +1,11 @@
-# Dashboard de Estudiantes y Mapa de Ruta del Bootcamp
+# Dashboard de estudiantes y mapa de ruta del bootcamp
 
 <img src="./img/roadmap.png">
 <img src="https://img.shields.io/static/v1?label=IA&message=Python&color=orange">
 
 https://factoria-f5-dev.github.io/roadmap-ia/
 
-Este proyecto consiste en un Dashboard de Estudiantes y una visualización del Mapa de Ruta del Bootcamp. Está diseñado para proporcionar a los estudiantes un acceso fácil a enlaces y recursos importantes, así como una representación visual del plan de estudios del bootcamp.
+Este proyecto consiste en un dashboard de estudiantes y una visualización del Mapa de Ruta del Bootcamp. Está diseñado para proporcionar a los estudiantes un acceso fácil a enlaces y recursos importantes, así como una representación visual del plan de estudios del bootcamp.
 
 ## Estructura del Proyecto
 

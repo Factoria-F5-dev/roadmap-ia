@@ -40,7 +40,7 @@ const data = [
     },
     {
         type: "Proyecto",
-        name: "Regresión de regresión (regresión lineal) | <i class='bi bi-person-fill'></i> | Profe: Jorge",
+        name: "Proyecto de regresión (regresión lineal) | <i class='bi bi-person-fill'></i> | Profe: Jorge",
         start: 9,
         end: 12,
     },
@@ -141,6 +141,12 @@ const data = [
         end: 14,
     },
     {
+        type: "Integracion",
+        name: "Integración y evaluación",
+        start: 16,
+        end: 19,
+    },
+    {
         type: "Tema",
         name: "Intro a los roles IA[Data Analist, Data Engineer, Data Scientist]",
         start: 20,
@@ -172,7 +178,7 @@ function generateGantt() {
     table.innerHTML = ""; // Clear table before regenerating
 
     // Create month header
-    let monthHeaderRow = "<tr><th style='width:200px'></th>"; // Increased width for the first column
+    let monthHeaderRow = "<tr><th></th>"; // Increased width for the first column
 
     for (let i = 1; i <= weeks; i += 4) {
         const month = Math.ceil(i / 4);
@@ -234,5 +240,5 @@ function generateGantt() {
     });
 
     // Set a fixed width for the table
-    table.style.width = `${weeks * 30 + 200}px`; // 30px per week + 200px for the first column
+    table.style.width = `${weeks * 30 + 260}px`; // 30px per week + 200px for the first column
 }
