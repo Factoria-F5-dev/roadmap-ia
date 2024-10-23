@@ -88,6 +88,14 @@ body {
     background-color: #5dc083;
 }
 
+#gantt-table td.block.integracion {
+    background-color: #b71422;
+}
+
+#gantt-table td.integracion {
+    background-color: #b71422;
+}
+
 #gantt-table td.proyecto {
     background-color: #f1ad70;
 }

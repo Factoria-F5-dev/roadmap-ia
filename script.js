@@ -17,42 +17,74 @@ const data = [
     {
         type: "Proyecto",
         name: "App con Python | <i class='bi bi-person-fill'></i> | Profe: Jorge",
+        start: 1,
+        end: 2,
     },
     {
         type: "Proyecto",
         name: "Un CRUD | <i class='bi bi-people-fill'></i> | Profe: Alex",
-        start: 4,
-        end: 7,
+        start: 3,
+        end: 5,
     },
     {
         type: "Proyecto",
         name: "Web Scraping | <i class='bi bi-person-fill'></i> | Profe: Jorge",
-        start: 8,
-        end: 9,
+        start: 6,
+        end: 7,
     },
     {
         type: "Proyecto",
-        name: "Datathon | <i class='bi bi-person-fill'></i> | Profe: Alex",
-        start: 10,
-        end: 10,
+        name: "Datathon | <i class='bi bi-person-fill'></i> | Profe: Alex y colaboradores externos",
+        start: 8,
+        end: 8,
     },
     {
         type: "Proyecto",
         name: "Regresión de regresión (regresión lineal) | <i class='bi bi-person-fill'></i> | Profe: Jorge",
-        start: 11,
-        end: 14,
+        start: 9,
+        end: 12,
     },
     {
         type: "Proyecto",
         name: "Problema de clasificación (Regresión logística binaria) | <i class='bi bi-person-fill'></i> | Profe: Alex",
-        start: 15,
-        end: 16,
+        start: 13,
+        end: 15,
+    },
+    {
+        type: "Integracion",
+        name: "Integración y evaluación",
+        start: 16,
+        end: 19,
     },
     {
         type: "Proyecto",
-        name: "Problema de clasificación (Regresión logística multiclase) | <i class='bi bi-people-fill'></i> | Profes: Jorge y Alex.",
-        start: 17,
-        end: 18,
+        name: "Tracks (Data Analist, Data Engineer, AI Developer) | <i class='bi bi-people-fill'></i> | Profes: David y Jonnathan.",
+        start: 20,
+        end: 23,
+    },
+    {
+        type: "Proyecto",
+        name: "NLP (Youtube comments) | <i class='bi bi-people-fill'></i> | Profes: David y Jonnathan.",
+        start: 24,
+        end: 26,
+    },
+    {
+        type: "Proyecto",
+        name: "LLM (Rag + agentes) | <i class='bi bi-people-fill'></i> | Profes: David y Jonnathan.",
+        start: 27,
+        end: 29,
+    },
+    {
+        type: "Proyecto",
+        name: "Computer vision | <i class='bi bi-people-fill'></i> | Profes: David y Jonnathan.",
+        start: 30,
+        end: 32,
+    },
+    {
+        type: "Proyecto",
+        name: "Proyectos Finales | <i class='bi bi-people-fill'></i> | Profes: David y Jonnathan.",
+        start: 33,
+        end: 36,
     },
     {
         type: "Tema",
@@ -63,50 +95,74 @@ const data = [
     {
         type: "Tema",
         name: "Buenas prácticas (Programación funcional, OOP, Git, Docker, Testing).",
+        start: 3,
+        end: 3,
+    },
+    {
+        type: "Tema",
+        name: "BBDD (SQL, NoSQL, ORM/ODM) y Despliegue en producción (APIs Rest, Render, Azure).",
         start: 4,
         end: 4,
     },
     {
         type: "Tema",
-        name: "BBDD (SQL, NoSQL, ORM/ODM) y Despliegue en producción (APIs Rest, Render, Azure).",
-        start: 5,
-        end: 5,
+        name: "Web Scraping (HTML, CSS, JS, Selenium, Scrapy, DOM)",
+        start: 6,
+        end: 6,
     },
     {
         type: "Tema",
-        name: "Web Scraping (HTML, CSS, JS, Selenium, Scrapy, DOM)",
+        name: "Intro a Análisis exploratorio de Datos (EDA), pandas, numpy, scikitlearn, matplotlib, visualización de datos.",
         start: 8,
         end: 8,
     },
     {
         type: "Tema",
-        name: "Intro a Análisis exploratorio de Datos (EDA), pandas, numpy, scikitlearn, matplotlib.",
+        name: "Intro a mates y estadística (Derivadas, límites, métricas, distribuciones).",
+        start: 9,
+        end: 9,
+    },
+    {
+        type: "Tema",
+        name: "Intro a machine learning (Tipos de modelos) y regresión lineal (Modelos, entrenamiento, evaluación, regresión lineal).",
         start: 10,
         end: 10,
     },
     {
         type: "Tema",
-        name: "Intro a mates y estadística (Derivadas, límites, métricas, distribuciones).",
-        start: 11,
-        end: 11,
-    },
-    {
-        type: "Tema",
-        name: "Intro a machine learning (Tipos de modelos) y regresión lineal (Modelos, entrenamiento, evaluación, regresión lineal).",
-        start: 12,
-        end: 12,
-    },
-    {
-        type: "Tema",
         name: "Intro a modelo de clasificación binaria (Regresión logística, modelos, entrenamiento, evaluación).",
-        start: 15,
-        end: 15,
+        start: 13,
+        end: 13,
     },
     {
         type: "Tema",
         name: "Intro a modelo de clasificación multiclase y ajuste de modelo.",
-        start: 17,
-        end: 17,
+        start: 14,
+        end: 14,
+    },
+    {
+        type: "Tema",
+        name: "Roles IA[Data Analist, Data Engineer, Data Scientist], MLOps, Auditoría de datos - EDA y Vintage Analysis, Definición de variables y target: fine-classing, coarse-classing",
+        start: 20,
+        end: 20,
+    },
+    {
+        type: "Tema",
+        name: "Python, SQL, scikit-Learn, Git & Github, Testing, Docker, Streamlit, Deploy Cloud, Logs, Kafka, Power BI, Tensor Flow , Spacy, NLTK, Word2Vec",
+        start: 24,
+        end: 24,
+    },
+    {
+        type: "Tema",
+        name: "Python, SQL, scikit-Learn, Git & Github, Testing, Docker, Streamlit, Deploy Cloud, Logs, Kafka, Power BI, Tensor Flow  , Langchain, LLMs, Embedings, Vector DB.",
+        start: 27,
+        end: 27,
+    },
+    {
+        type: "Tema",
+        name: "Python, SQL, scikit-Learn, Git & Github, Testing, Docker, Streamlit, Deploy Cloud, Logs, Kafka, Power BI, Tensor Flow, OpenCV, YoloV11.",
+        start: 30,
+        end: 30,
     },
 ];
 
@@ -143,6 +199,7 @@ function generateGantt() {
         let colorClass = "";
         let iconoProject = '<i class="bi bi-briefcase-fill"></i>';
         let iconoTema = '<i class="bi bi-book-fill"></i>';
+        let iconoIntegracion = '<i class="bi bi-diagram-3-fill"></i>';
         let icon = '';
 
         if (item.type === "Proyecto") {
@@ -155,6 +212,11 @@ function generateGantt() {
             item.start = item.start ? item.start : lastEnd + 1;
             item.end = item.end ? item.end : item.start + 2;
             icon = iconoTema;
+        } else if (item.type === "Integracion") {
+            colorClass = "integracion";
+            item.start = item.start ? item.start : lastEnd + 1;
+            item.end = item.end ? item.end : item.start + 2;
+            icon = iconoIntegracion;
         }
 
         lastEnd =   item.end;
