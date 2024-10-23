@@ -27,6 +27,18 @@
                             </a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" href="#pildoras">
+                                <i class="bi bi-megaphone"></i>
+                                Píldoras
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#horario">
+                                <i class="bi bi-clock"></i>
+                                Horario
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="#calendar">
                                 <i class="bi bi-calendar me-2"></i>
                                 Calendario
@@ -54,30 +66,43 @@
                                     </h5>
                                     <div id="generate">
                                         <label for="weeks">Semanas:</label>
-                                        <input type="number" id="weeks" value="36" min="1" max="52"/>
+                                        <input type="number" id="weeks" value="36" min="1" max="52" />
                                         <button onclick="generateGantt()">Generar</button>
                                     </div>
                                     <!-- Leyenda-->
                                     <div class="row mb-4">
-                                                <ul class="list-inline">
-                                                    <li class="list-inline-item">
-                                                        <span class="badge project">
-                                                             <i class="bi bi-briefcase-fill"></i> | <i class="bi bi-person-fill"></i> Proyectos individual de coder de temática abierta
-                                                        </span>
-                                                    </li>
-                                                    <li class="list-inline-item">
-                                                        <span class="badge project">
-                                                             <i class="bi bi-briefcase-fill"></i> | <i class="bi bi-people-fill"></i> Proyectos en grupo de coders de temática abierta
-                                                        </span>
-                                                    </li>
-                                                    <li class="list-inline-item">
-                                                        <span class="badge temas">
-                                                            <i class="bi bi-book-fill"></i> Temas (Impartidos por coders a través de píldoras individuales y grupales con apoyo de formadores y colaboraciones externas)
-                                                        </span>
-                                            
-                                                    </li>
-                                                </ul>
-                                     </div>
+                                        <ul class="list-inline">
+                                            <li class="list-inline-item">
+                                                <span class="badge project">
+                                                    <i class="bi bi-briefcase-fill"></i> | <i
+                                                        class="bi bi-person-fill"></i> Proyectos individual de coder de
+                                                    temática abierta
+                                                </span>
+                                            </li>
+                                            <li class="list-inline-item">
+                                                <span class="badge project">
+                                                    <i class="bi bi-briefcase-fill"></i> | <i
+                                                        class="bi bi-people-fill"></i> Proyectos en grupo de coders de
+                                                    temática abierta
+                                                </span>
+                                            </li>
+                                            <li class="list-inline-item">
+                                                <span class="badge temas">
+                                                    <i class="bi bi-book-fill"></i> Temas (Impartidos por coders a
+                                                    través de píldoras individuales y grupales con apoyo de formadores y
+                                                    colaboraciones externas)
+                                                </span>
+
+                                            </li>
+                                            <li class="list-inline-item">
+                                                <span class="badge integracion">
+                                                    <i class="bi bi-diagram-3-fill"></i> Integración y evaluación
+                                                    (Evaluación, eventos, vacaciones, etc.)
+                                                </span>
+
+                                            </li>
+                                        </ul>
+                                    </div>
                                     <div class="gantt-container">
                                         <table id="gantt-table"></table>
                                     </div>
@@ -85,15 +110,70 @@
                             </div>
                         </div>
 
+                        <!-- Pildoras -->
+                        <div class="col-12" id="pildoras">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                        <i class="bi bi-megaphone"></i> Píldoras
+                                    </h5>
+                                    <div class="card-text">
+                                        Las píldoras se asignarán la primera semana, se apuntará en el calendario y se
+                                        recomienda que cunmplan con lo siguiente:
+                                    </div>
+
+                                    <div>
+                                        <ul>
+                                            <li>Que tenga un poco de inglés (hablado no solo en la presentación)</li>
+                                            <li>Que tenga parte teórica y parte práctica. Énfasis en la práctica</li>
+                                            <li>Tiempo mínimo 1 hora, como un taller, que tenga un repositorio de
+                                                referencia</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Horario -->
+                        <div class="col-12" id="horario">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                        <i class="bi bi-clock"></i> Horario
+                                    </h5>
+                                    <div class="card-text">
+                                        En el Google Calendar encontraran la hora de inicio y fin de la clase, tanto para los días presenciales como para los días online, sin embargo les recordamos:
+                                    </div>
+
+                                    <div>
+                                        <ul>
+                                            <li>La puntualidad es importante, recuerden que ingrean a las: 8:30</li>
+                                            <li>Tienen dos descansos de 15 minutos cada uno durante la jornada:
+                                                <ul>
+                                                    <li>A las 11:00 de la mañana</li>
+                                                    <li>A las 13:00 de la mañana</li>
+                                                </ul>
+                                            </li>
+                                            <li> Descansar también es importante, recuerden que finalizan a las 15:30</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Calendar -->
+
                         <div class="col-12" id="calendar">
                             <div class="card">
                                 <div class="card-body">
                                     <h5 class="card-title">
-                                         <i class="bi bi-calendar me-2"></i> Calendario
+                                        <i class="bi bi-calendar me-2"></i> Calendario
                                     </h5>
                                     <div class="ratio ratio-16x9">
                                         <iframe
-                                            src="https://calendar.google.com/calendar/embed?src=c_classroom12345abcdef%40group.calendar.google.com&ctz=America%2FNew_York" style="border: 0;" width="100%" height="400" frameborder="0" scrolling="no">
+                                            src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=Europe%2FMadrid&bgcolor=%23EF6C00&src=Y18zMDQ4MjU4NDYxYWE5MTk2YzE3YjgyNDc4OTk5NDk2MzNjNzMzZDk4MzhlZjFhZTQ1YzMzZTQ5ZDRkZGU5ZGZmQGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20&color=%234285F4"
+                                            style="border:solid 1px #777" width="800" height="600" frameborder="0"
+                                            scrolling="no">
                                         </iframe>
                                     </div>
                                 </div>
@@ -130,7 +210,7 @@
                                                     </a>
                                                 </button>
                                                 <button class="btn btn-outline-primary" data-link="classroom">
-                                                    <a href="https://zoom.us/j/your-meeting-id" target="_blank">
+                                                    <a href="https://github.com/Factoria-F5-dev" target="_blank">
                                                         <i class="bi bi-github me-2"></i> Github
                                                     </a>
                                                 </button>

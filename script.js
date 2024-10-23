@@ -46,7 +46,7 @@ const data = [
     },
     {
         type: "Proyecto",
-        name: "Problema de clasificación (Regresión logística binaria) | <i class='bi bi-person-fill'></i> | Profe: Alex",
+        name: "Problema de clasificación (Regresión logística binaria y multiclase) | <i class='bi bi-person-fill'></i> | Profe: Alex",
         start: 13,
         end: 15,
     },
@@ -142,25 +142,25 @@ const data = [
     },
     {
         type: "Tema",
-        name: "Roles IA[Data Analist, Data Engineer, Data Scientist], MLOps, Auditoría de datos - EDA y Vintage Analysis, Definición de variables y target: fine-classing, coarse-classing",
+        name: "Intro a los roles IA[Data Analist, Data Engineer, Data Scientist]",
         start: 20,
         end: 20,
     },
     {
         type: "Tema",
-        name: "Python, SQL, scikit-Learn, Git & Github, Testing, Docker, Streamlit, Deploy Cloud, Logs, Kafka, Power BI, Tensor Flow , Spacy, NLTK, Word2Vec",
+        name: "Intro a Spacy, NLTK, Word2Vec",
         start: 24,
         end: 24,
     },
     {
         type: "Tema",
-        name: "Python, SQL, scikit-Learn, Git & Github, Testing, Docker, Streamlit, Deploy Cloud, Logs, Kafka, Power BI, Tensor Flow  , Langchain, LLMs, Embedings, Vector DB.",
+        name: "Intro a Langchain, LLMs, Embedings, Vector DB.",
         start: 27,
         end: 27,
     },
     {
         type: "Tema",
-        name: "Python, SQL, scikit-Learn, Git & Github, Testing, Docker, Streamlit, Deploy Cloud, Logs, Kafka, Power BI, Tensor Flow, OpenCV, YoloV11.",
+        name: "Intro a OpenCV, YoloV11.",
         start: 30,
         end: 30,
     },
