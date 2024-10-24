@@ -16,37 +16,43 @@ document.addEventListener('DOMContentLoaded', function() {
 const data = [
     {
         type: "Proyecto",
-        name: "App con Python | <i class='bi bi-person-fill'></i> | Profe: Jorge",
+        name: "App con Python | <i class='bi bi-person-fill'></i> ",
         start: 1,
         end: 2,
     },
     {
         type: "Proyecto",
-        name: "Un CRUD | <i class='bi bi-people-fill'></i> | Profe: Alex",
+        name: "Un CRUD | <i class='bi bi-people-fill'></i>",
         start: 3,
         end: 5,
     },
     {
         type: "Proyecto",
-        name: "Web Scraping | <i class='bi bi-person-fill'></i> | Profe: Jorge",
+        name: "Web Scraping | <i class='bi bi-person-fill'></i> ",
         start: 6,
         end: 7,
     },
     {
         type: "Proyecto",
-        name: "Datathon | <i class='bi bi-person-fill'></i> | Profe: Alex y colaboradores externos",
+        name: "Datathon | <i class='bi bi-person-fill'></i>",
         start: 8,
         end: 8,
     },
     {
         type: "Proyecto",
-        name: "Proyecto de regresión (regresión lineal) | <i class='bi bi-person-fill'></i> | Profe: Jorge",
+        name: "Proyecto de regresión (regresión lineal) | <i class='bi bi-person-fill'></i> ",
         start: 9,
+        end: 10,
+    },
+    {
+        type: "Proyecto",
+        name: "Problema de clasificación (Regresión logística binaria y multiclase) | <i class='bi bi-person-fill'></i>",
+        start: 11,
         end: 12,
     },
     {
         type: "Proyecto",
-        name: "Problema de clasificación (Regresión logística binaria y multiclase) | <i class='bi bi-person-fill'></i> | Profe: Alex",
+        name: "Modelo de libre elección | <i class='bi bi-person-fill'></i>",
         start: 13,
         end: 15,
     },
@@ -58,31 +64,31 @@ const data = [
     },
     {
         type: "Proyecto",
-        name: "Tracks (Data Analist, Data Engineer, AI Developer) | <i class='bi bi-people-fill'></i> | Profes: David y Jonnathan.",
+        name: "Tracks (Data Analist, Data Engineer, AI Developer) | <i class='bi bi-people-fill'></i>",
         start: 20,
         end: 23,
     },
     {
         type: "Proyecto",
-        name: "NLP (Youtube comments) | <i class='bi bi-people-fill'></i> | Profes: David y Jonnathan.",
+        name: "NLP (Youtube comments) | <i class='bi bi-people-fill'></i>",
         start: 24,
         end: 26,
     },
     {
         type: "Proyecto",
-        name: "LLM (Rag + agentes) | <i class='bi bi-people-fill'></i> | Profes: David y Jonnathan.",
+        name: "LLM (Rag + agentes) | <i class='bi bi-people-fill'></i>",
         start: 27,
         end: 29,
     },
     {
         type: "Proyecto",
-        name: "Computer vision | <i class='bi bi-people-fill'></i> | Profes: David y Jonnathan.",
+        name: "Computer vision | <i class='bi bi-people-fill'></i>",
         start: 30,
         end: 32,
     },
     {
         type: "Proyecto",
-        name: "Proyectos Finales | <i class='bi bi-people-fill'></i> | Profes: David y Jonnathan.",
+        name: "Proyectos Finales | <i class='bi bi-people-fill'></i>",
         start: 33,
         end: 36,
     },
@@ -175,12 +181,10 @@ const data = [
 function generateGantt() {
     const weeks = document.getElementById("weeks").value;
     const table = document.getElementById("gantt-table");
-    table.innerHTML = ""; // Clear table before regenerating
+    table.innerHTML = ""; 
 
-    // Create period header row with colspan for the periods
-    let periodHeaderRow = "<tr><th>Periodo</th>"; // Header for periods
+    let periodHeaderRow = "<tr><th>Periodo</th>";
 
-    // Define the periods and their week ranges
     const periods = [
         { name: "The Field", start: 1, end: 7 },
         { name: "The Hill", start: 8, end: 15 },
@@ -189,7 +193,6 @@ function generateGantt() {
         { name: "The Valley", start: 33, end: 36 },
     ];
 
-    // Create the period header row with correct colspan
     periods.forEach(period => {
         let colspan = period.end - period.start + 1;
         periodHeaderRow += `<th colspan="${colspan}">${period.name}</th>`;
@@ -197,31 +200,12 @@ function generateGantt() {
     periodHeaderRow += "</tr>";
     table.innerHTML = periodHeaderRow;
 
-    // Create month header row
-    let monthHeaderRow = "<tr><th>Meses</th>";
-    for (let i = 1; i <= weeks; i += 4) {
-        const month = Math.ceil(i / 4);
-        let colspan = Math.min(4, weeks - i + 1); // Handle cases where the last month might not have 4 weeks
-        monthHeaderRow += `<th colspan="${colspan}">Mes ${month}</th>`;
-    }
-    monthHeaderRow += "</tr>";
-    table.innerHTML += monthHeaderRow;
-
-    // Create week header row
-    let weekHeaderRow = "<tr><th>Elemento</th>";
-    for (let i = 1; i <= weeks; i++) {
-        weekHeaderRow += `<th>${i}</th>`;
-    }
-    weekHeaderRow += "</tr>";
-    table.innerHTML += weekHeaderRow;
-
-    // Create module header row with specific ranges
     let moduleHeaderRow = "<tr><th>Módulos</th>";
     const modules = [
-        { name: "Module 1", start: 1, end: 7 }, // The Field
-        { name: "Module 2", start: 8, end: 15 }, // The Hill
-        { name: "Module 3", start: 17, end: 33 }, // The Mountain and The Peak
-        { name: "End", start: 33, end: 36 }, // The Mountain and The Peak
+        { name: "Módulo 1", start: 1, end: 7 }, 
+        { name: "Módulo 2", start: 8, end: 15 }, 
+        { name: "Módulo 3", start: 17, end: 33 }, 
+        { name: "End", start: 33, end: 36 }, 
     ];
 
     modules.forEach(module => {
@@ -231,7 +215,22 @@ function generateGantt() {
     moduleHeaderRow += "</tr>";
     table.innerHTML += moduleHeaderRow;
 
-    // Now proceed to add rows for data (projects, themes, integrations)
+    let monthHeaderRow = "<tr><th>Meses</th>";
+    for (let i = 1; i <= weeks; i += 4) {
+        const month = Math.ceil(i / 4);
+        let colspan = Math.min(4, weeks - i + 1); 
+        monthHeaderRow += `<th colspan="${colspan}">Mes ${month}</th>`;
+    }
+    monthHeaderRow += "</tr>";
+    table.innerHTML += monthHeaderRow;
+
+    let weekHeaderRow = "<tr><th>Elemento</th>";
+    for (let i = 1; i <= weeks; i++) {
+        weekHeaderRow += `<th>${i}</th>`;
+    }
+    weekHeaderRow += "</tr>";
+    table.innerHTML += weekHeaderRow;
+
     let lastEnd = 0;
 
     data.forEach((item) => {
@@ -241,7 +240,6 @@ function generateGantt() {
         let iconoIntegracion = '<i class="bi bi-diagram-3-fill"></i>';
         let icon = '';
 
-        // Determine the type of item and assign corresponding icon and color
         if (item.type === "Proyecto") {
             colorClass = "proyecto";
             item.start = item.start ? item.start : lastEnd + 1;
@@ -261,10 +259,8 @@ function generateGantt() {
 
         lastEnd = item.end;
 
-        // Create the row for this item
         let row = `<tr><td class="label ${colorClass}">${icon} ${item.name}</td>`;
 
-        // Add empty or filled cells based on the item's start and end weeks
         for (let i = 1; i <= weeks; i++) {
             if (i >= item.start && i <= item.end) {
                 row += `<td class="block ${colorClass}"></td>`;
@@ -277,6 +273,5 @@ function generateGantt() {
         table.innerHTML += row;
     });
 
-    // Set a fixed width for the table
-    table.style.width = `${weeks * 30 + 260}px`; // 30px per week + 260px for the first column
+    table.style.width = `${weeks * 30 + 260}px`; 
 }
