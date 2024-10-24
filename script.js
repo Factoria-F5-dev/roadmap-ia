@@ -51,8 +51,8 @@ const data = [
         end: 15,
     },
     {
-        type: "Integracion",
-        name: "Integración y evaluación",
+        type: "Transición",
+        name: "Transición flexible",
         start: 16,
         end: 19,
     },
@@ -141,14 +141,14 @@ const data = [
         end: 14,
     },
     {
-        type: "Integracion",
-        name: "Integración y evaluación",
+        type: "Transición",
+        name: "Transición flexible",
         start: 16,
         end: 19,
     },
     {
         type: "Tema",
-        name: "Intro a los roles IA[Data Analist, Data Engineer, Data Scientist]",
+        name: "Intro a los roles IA [Data Analist, Data Engineer, Data Scientist]",
         start: 20,
         end: 20,
     },
@@ -218,8 +218,8 @@ function generateGantt() {
             item.start = item.start ? item.start : lastEnd + 1;
             item.end = item.end ? item.end : item.start + 2;
             icon = iconoTema;
-        } else if (item.type === "Integracion") {
-            colorClass = "integracion";
+        } else if (item.type === "Transición") {
+            colorClass = "transicion";
             item.start = item.start ? item.start : lastEnd + 1;
             item.end = item.end ? item.end : item.start + 2;
             icon = iconoIntegracion;

@@ -71,7 +71,7 @@ body {
     background-color: #f1ad70;
 }
 
-.integracion {
+.transicion {
     background-color: #80808096;
 }
 
@@ -92,11 +92,11 @@ body {
     background-color: #5dc083;
 }
 
-#gantt-table td.block.integracion {
+#gantt-table td.block.transicion {
     background-color: #80808096;
 }
 
-#gantt-table td.integracion {
+#gantt-table td.transicion {
     background-color: #80808096;
 }
 
